@@ -1,0 +1,8 @@
+C:\Users\Jonne\Documents\workshop-3-1dv607\BlackJack\bin\Debug\netcoreapp1.1\BlackJack.deps.json
+C:\Users\Jonne\Documents\workshop-3-1dv607\BlackJack\bin\Debug\netcoreapp1.1\BlackJack.runtimeconfig.json
+C:\Users\Jonne\Documents\workshop-3-1dv607\BlackJack\bin\Debug\netcoreapp1.1\BlackJack.runtimeconfig.dev.json
+C:\Users\Jonne\Documents\workshop-3-1dv607\BlackJack\obj\Debug\netcoreapp1.1\BlackJack.AssemblyInfo.cs
+C:\Users\Jonne\Documents\workshop-3-1dv607\BlackJack\bin\Debug\netcoreapp1.1\BlackJack.dll
+C:\Users\Jonne\Documents\workshop-3-1dv607\BlackJack\bin\Debug\netcoreapp1.1\BlackJack.pdb
+C:\Users\Jonne\Documents\workshop-3-1dv607\BlackJack\obj\Debug\netcoreapp1.1\BlackJack.dll
+C:\Users\Jonne\Documents\workshop-3-1dv607\BlackJack\obj\Debug\netcoreapp1.1\BlackJack.pdb
