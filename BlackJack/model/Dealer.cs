@@ -20,6 +20,24 @@ namespace BlackJack.model
             m_hitRule = a_rulesFactory.GetHitRule();
         }
 
+        public bool Stand()
+        {
+            if (m_deck != null) 
+            {
+                ShowHand();
+                while (m_hitRule.DoHit(this))
+                {
+                    Card c = m_deck.GetCard();
+                    c.Show(true);
+                    DealCard(c);
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
         public bool NewGame(Player a_player)
         {
             if (m_deck == null || IsGameOver())
