@@ -12,12 +12,21 @@ namespace BlackJack.model
 
         private rules.INewGameStrategy m_newGameRule;
         private rules.IHitStrategy m_hitRule;
+        private rules.IWinnerStrategy m_winnerRule;
 
 
         public Dealer(rules.RulesFactory a_rulesFactory)
         {
             m_newGameRule = a_rulesFactory.GetNewGameRule();
             m_hitRule = a_rulesFactory.GetHitRule();
+            m_winnerRule = a_rulesFactory.GetWinnerRule();
+        }
+
+        public void DrawAndDealCard(Player a_playerOrDealer, bool ShowOrHideCard)
+        {
+            Card c = m_deck.GetCard();
+            c.Show(ShowOrHideCard);
+            a_playerOrDealer.DealCard(c);
         }
 
         public bool Stand()
@@ -45,7 +54,7 @@ namespace BlackJack.model
                 m_deck = new Deck();
                 ClearHand();
                 a_player.ClearHand();
-                return m_newGameRule.NewGame(m_deck, this, a_player);   
+                return m_newGameRule.NewGame(this, a_player);   
             }
             return false;
         }
@@ -66,15 +75,7 @@ namespace BlackJack.model
 
         public bool IsDealerWinner(Player a_player)
         {
-            if (a_player.CalcScore() > g_maxScore)
-            {
-                return true;
-            }
-            else if (CalcScore() > g_maxScore)
-            {
-                return false;
-            }
-            return CalcScore() >= a_player.CalcScore();
+            return m_winnerRule.WinnerStrategy(a_player.CalcScore(), CalcScore(), g_maxScore);
         }
 
         public bool IsGameOver()
