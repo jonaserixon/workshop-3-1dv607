@@ -27,6 +27,27 @@ namespace BlackJack.view
         {
             return System.Console.In.Read();
         }
+
+        public bool PlayerWantsToPlay(int input)
+        {
+            return input == 'p';
+        }
+
+        public bool PlayerWantsToHit(int input)
+        {
+            return input == 'h';
+        }
+
+        public bool PlayerWantsToStand(int input)
+        {
+            return input == 's';
+        }
+
+        public bool PlayerWantsToQuit(int input)
+        {
+            return input == 'q';
+        }
+
         public void DisplayCard(model.Card a_card)
         {
             if (a_card.GetColor() == model.Card.Color.Hidden)
