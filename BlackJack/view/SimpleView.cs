@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BlackJack.view
 {
-    class SimpleView : IView
+    class SimpleView : IView, model.IExcitingObserver
     {
 
         public void DisplayWelcomeMessage()

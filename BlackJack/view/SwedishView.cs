@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BlackJack.view
 {
-    class SwedishView : IView 
+    class SwedishView : IView, model.IExcitingObserver
     {
         public void DisplayWelcomeMessage()
         {
@@ -17,8 +17,10 @@ namespace BlackJack.view
 
         public void RedrawAndShowHand(model.Dealer a_dealer, model.Player a_player)
         {
-            Console.WriteLine("hhej");
             System.Threading.Thread.Sleep(2000);
+            DisplayWelcomeMessage();
+            DisplayDealerHand(a_dealer.GetHand(), a_dealer.CalcScore());
+            DisplayPlayerHand(a_player.GetHand(), a_player.CalcScore());
         }
 
         public int GetInput()

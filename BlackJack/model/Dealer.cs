@@ -13,14 +13,14 @@ namespace BlackJack.model
         private rules.INewGameStrategy m_newGameRule;
         private rules.IHitStrategy m_hitRule;
         private rules.IWinnerStrategy m_winnerRule;
-        private List<view.IView> m_listeners;
+        private List<IExcitingObserver> m_listeners;
 
         public Dealer(rules.RulesFactory a_rulesFactory)
         {
             m_newGameRule = a_rulesFactory.GetNewGameRule();
             m_hitRule = a_rulesFactory.GetHitRule();
             m_winnerRule = a_rulesFactory.GetWinnerRule();
-            m_listeners = new List<view.IView>();
+            m_listeners = new List<IExcitingObserver>();
         }
 
         public void DrawAndDealCard(Player a_dealerOrPlayer, bool ShowOrHideCard, Player a_player)
@@ -29,13 +29,13 @@ namespace BlackJack.model
             c.Show(ShowOrHideCard);
             a_dealerOrPlayer.DealCard(c);
 
-            foreach(view.IView listener in m_listeners)
+            foreach(IExcitingObserver listener in m_listeners)
             {
                 listener.RedrawAndShowHand(this, a_player);
             }
         }
 
-        public void AddListener(view.IView listener)
+        public void AddListener(IExcitingObserver listener)
         {
             m_listeners.Add(listener);
         }
@@ -74,10 +74,12 @@ namespace BlackJack.model
         {
             if (m_deck != null && a_player.CalcScore() < g_maxScore && !IsGameOver())
             {
-                Card c;
-                c = m_deck.GetCard();
-                c.Show(true);
-                a_player.DealCard(c);
+                DrawAndDealCard(a_player, true, a_player);
+                
+                // Card c;
+                // c = m_deck.GetCard();
+                // c.Show(true);
+                // a_player.DealCard(c);
 
                 return true;
             }

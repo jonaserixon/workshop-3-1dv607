@@ -10,7 +10,7 @@ namespace BlackJack.model
         private model.Dealer m_dealer;
         private model.Player m_player;
 
-        public Game(view.IView listener)
+        public Game(IExcitingObserver listener)
         {
             m_dealer = new Dealer(new rules.RulesFactory());
             m_player = new Player();
