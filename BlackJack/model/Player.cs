@@ -15,7 +15,7 @@ namespace BlackJack.model
         }
 
         public IEnumerable<Card> GetHand()
-        {
+        { 
             return m_hand.Cast<Card>();
         }
 

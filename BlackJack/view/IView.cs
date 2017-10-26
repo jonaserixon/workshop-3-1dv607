@@ -13,5 +13,6 @@ namespace BlackJack.view
         void DisplayPlayerHand(IEnumerable<model.Card> a_hand, int a_score);
         void DisplayDealerHand(IEnumerable<model.Card> a_hand, int a_score);
         void DisplayGameOver(bool a_dealerIsWinner);
+        void RedrawAndShowHand(model.Dealer a_dealer, model.Player a_player);
     }
 }

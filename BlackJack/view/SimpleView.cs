@@ -15,6 +15,14 @@ namespace BlackJack.view
             System.Console.WriteLine("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
         }
 
+        public void RedrawAndShowHand(model.Dealer a_dealer, model.Player a_player)
+        {
+            System.Threading.Thread.Sleep(2000);
+            DisplayWelcomeMessage();
+            DisplayDealerHand(a_dealer.GetHand(), a_dealer.CalcScore());
+            DisplayPlayerHand(a_player.GetHand(), a_player.CalcScore());
+        }
+
         public int GetInput()
         {
             return System.Console.In.Read();
@@ -38,6 +46,7 @@ namespace BlackJack.view
         private void DisplayHand(String a_name, IEnumerable<model.Card> a_hand, int a_score)
         {
             System.Console.WriteLine("{0} Has: ", a_name);
+            
             foreach (model.Card c in a_hand)
             {
                 DisplayCard(c);

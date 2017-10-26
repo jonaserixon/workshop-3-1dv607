@@ -14,6 +14,13 @@ namespace BlackJack.view
             System.Console.WriteLine("----------------------");
             System.Console.WriteLine("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
         }
+
+        public void RedrawAndShowHand(model.Dealer a_dealer, model.Player a_player)
+        {
+            Console.WriteLine("hhej");
+            System.Threading.Thread.Sleep(2000);
+        }
+
         public int GetInput()
         {
             return System.Console.In.Read();

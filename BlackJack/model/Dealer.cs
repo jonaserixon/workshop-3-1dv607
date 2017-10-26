@@ -13,20 +13,31 @@ namespace BlackJack.model
         private rules.INewGameStrategy m_newGameRule;
         private rules.IHitStrategy m_hitRule;
         private rules.IWinnerStrategy m_winnerRule;
-
+        private List<view.IView> m_listeners;
 
         public Dealer(rules.RulesFactory a_rulesFactory)
         {
             m_newGameRule = a_rulesFactory.GetNewGameRule();
             m_hitRule = a_rulesFactory.GetHitRule();
             m_winnerRule = a_rulesFactory.GetWinnerRule();
+            m_listeners = new List<view.IView>();
         }
 
-        public void DrawAndDealCard(Player a_playerOrDealer, bool ShowOrHideCard)
+        public void DrawAndDealCard(Player a_dealerOrPlayer, bool ShowOrHideCard, Player a_player)
         {
             Card c = m_deck.GetCard();
             c.Show(ShowOrHideCard);
-            a_playerOrDealer.DealCard(c);
+            a_dealerOrPlayer.DealCard(c);
+
+            foreach(view.IView listener in m_listeners)
+            {
+                listener.RedrawAndShowHand(this, a_player);
+            }
+        }
+
+        public void AddListener(view.IView listener)
+        {
+            m_listeners.Add(listener);
         }
 
         public bool Stand()
