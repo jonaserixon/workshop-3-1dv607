@@ -1,4 +1,4 @@
-# workshop-2-1dv607
+# workshop-3-1dv607
 Repository for workshop 3 in 1dv607
 
 https://coursepress.lnu.se/kurs/objektorienterad-analys-och-design-med-uml/workshops-2/workshop-3-design-using-patterns/
